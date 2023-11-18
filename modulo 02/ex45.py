@@ -42,6 +42,5 @@ elif (eu_up == computador):
     print("--"*6)
     print("EMPATE")
     print("--"*6)
-    jokenpo()
     
 
