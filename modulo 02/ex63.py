@@ -1,8 +1,9 @@
 print('-'*25)
 print('Sequência de Fibonacci')
 print('-'*25)
-
+print('~'*36)
 termos = int(input('Quantos termos você quer mostrar? '))
+print('~'*36)
 t1 = 0
 t2 = 1
 print('{} -> {}'.format(t1,t2), end='')
@@ -14,3 +15,4 @@ while cont <= termos:
     t2 = t3
     cont += 1
 print(' -> FIM')
+
