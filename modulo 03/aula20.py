@@ -14,8 +14,8 @@ def dobra(lst):
     pos = 0
     while pos < len(lst):
         lst[pos] *= 2
-    pos += 1
-
+        pos += 1
+    
 
 #Programa Principal
 soma(4, 5)
@@ -27,8 +27,10 @@ contador(2, 1, 7)
 contador(8, 0)
 contador(4, 4, 7, 6, 2)
 
-valores = [6, 9, 8, 5, 7]
+valores = [1, 4, 6, 3, 8]
 dobra(valores)
 print(valores)
+
+
 
 
