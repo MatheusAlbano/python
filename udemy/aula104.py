@@ -11,6 +11,10 @@ except ModuleNotFoundError:
     ...
 import modulo_python
 import aula104_m
+from aula104_m import variavel_modulo, soma
 
 print('Esta módulo se chama', __name__)
-print(*sys.path, sep='\n')
+print(aula104_m.variavel_modulo)
+print(variavel_modulo)
+print(soma(2, 3))
+print(aula104_m.soma(2, 3))
