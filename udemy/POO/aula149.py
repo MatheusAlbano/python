@@ -30,7 +30,6 @@ class Cliente(Pessoa):
 
 class Aluno(Pessoa):
     cpf = '4551'
-    ...
 
 
 c1 = Cliente('Matheus', 'Albano')
@@ -39,5 +38,5 @@ a1 = Aluno('Luiz', 'Otávio')
 a1.falar_nome_classe()
 print(a1.cpf)
 
-#help(Cliente)
+# help(Cliente)
 
