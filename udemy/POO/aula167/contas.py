@@ -1,15 +1,14 @@
 import abc
 
+
 class Conta(abc.ABC):
-    def __init__(
-            self, agencia: int, numero_conta: int, saldo: float = 0
-    ):
+    def __init__(self, agencia: int, conta: int, saldo: float = 0) -> None:
         self.agencia = agencia
-        self.numero_conta = numero_conta
+        self.conta = conta
         self.saldo = saldo
 
     @abc.abstractmethod
-    def sacar(self, valor: float) -> float:...
+    def sacar(self, valor: float) -> float: ...
 
     def depositar(self, valor: float) -> float:
         self.saldo += valor
@@ -21,30 +20,32 @@ class Conta(abc.ABC):
         print('--')
 
     def __repr__(self):
-            class_name = type(self).__name__
-            atts = f'({self.agencia!r}, {self.numero_conta!r}, {self.saldo!r})'
-            return f'{class_name}{atts}'
+        class_name = type(self).__name__
+        attrs = f'({self.agencia!r}, {self.conta!r}, {self.saldo!r})'
+        return f'{class_name}{attrs}'
+
 
 class ContaPoupanca(Conta):
-    def sacar(self, valor: float) -> float:
+    def sacar(self, valor):
         valor_pos_saque = self.saldo - valor
 
         if valor_pos_saque >= 0:
             self.saldo -= valor
             self.detalhes(f'(SAQUE {valor})')
             return self.saldo
-        
+
         print('Não foi possível sacar o valor desejado')
         self.detalhes(f'(SAQUE NEGADO {valor})')
         return self.saldo
 
+
 class ContaCorrente(Conta):
     def __init__(
-            self, agencia: int, numero_conta: int, saldo: float = 0, limite: float = 0
+        self, agencia: int, conta: int,
+        saldo: float = 0, limite: float = 0
     ):
-        super().__init__(agencia, numero_conta, saldo)
+        super().__init__(agencia, conta, saldo)
         self.limite = limite
-        
 
     def sacar(self, valor: float) -> float:
         valor_pos_saque = self.saldo - valor
@@ -54,17 +55,17 @@ class ContaCorrente(Conta):
             self.saldo -= valor
             self.detalhes(f'(SAQUE {valor})')
             return self.saldo
-        
+
         print('Não foi possível sacar o valor desejado')
         print(f'Seu limite é {-self.limite:.2f}')
         self.detalhes(f'(SAQUE NEGADO {valor})')
         return self.saldo
-    
+
     def __repr__(self):
-            class_name = type(self).__name__
-            atts = f'({self.agencia!r}, {self.numero_conta!r}, {self.saldo!r}, '\
-                '{self.limite!r})'
-            return f'{class_name}{atts}'
+        class_name = type(self).__name__
+        attrs = f'({self.agencia!r}, {self.conta!r}, {self.saldo!r}, '\
+            f'{self.limite!r})'
+        return f'{class_name}{attrs}'
 
 
 if __name__ == '__main__':
@@ -81,6 +82,6 @@ if __name__ == '__main__':
     cc1.sacar(1)
     cc1.sacar(98)
     cc1.sacar(1)
-
+    print('##')
 
     
