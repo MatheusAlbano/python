@@ -1,16 +1,15 @@
-import os 
-from itertools import count
 
-caminho = os.path.join('C:', 'Users', 'mathe', 'Testando os.walk')
-counter = count()
 
-for root, dirs, files in os.walk(caminho):
-    the_counter = next(counter)
-    print(' ', the_counter, 'Pasta Atual', root)
+def calcular_Fat(n):
+    contador = 1
+    fatorial = 0
+    while n >= contador:
+        resultado = n*contador
+        print(f'{n} X {contador} = {resultado}')
+        contador+=1
+        fatorial += resultado
+    print(f'{n}! = {fatorial}')
+    return fatorial
 
-    for dir_ in dirs:
-        print(' ', the_counter, 'Dir: ', dir_)
-
-    for file_ in files:
-        caminho_completo = os.path.join(root, file_)
-        print(' ', the_counter, "File: ", caminho_completo)
+calcular_Fat(10)
+    
